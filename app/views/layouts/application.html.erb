@@ -26,8 +26,17 @@
         <ul class="navbar-nav ml=auto">
           <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-light' %>
-          </li>
+            <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
+            <ul class="fa-ul">
+              <li>
+                <span class="fa-li">
+                  <i class="fas fa-home"></i>
+                </span>
+                Home
+              </li>
+            </ul>
+            <% end %>
+           </li>
           <li class="nav-item">
             <%= link_to 'Users', users_path, class: 'nav-link text-light' %>
           </li>
@@ -58,7 +67,7 @@
 </heder>
 
 
-   <main class="mb-auto">
+   <main>
      <%= yield %>
    </main>
    <footer>
